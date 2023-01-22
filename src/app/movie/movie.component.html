@@ -1,0 +1,85 @@
+<navbar></navbar>
+<div class="container pt-100 mb-5">
+  <div class="row">
+    <div class="col-3">
+      <div class="list-group text-center">
+        <a
+          href="#"
+          (click)="changeCategory()"
+          class="list-group-item list-group-item-action list-group-item-info"
+        >
+          All Categories
+        </a>
+        <a
+          *ngFor="let c of categories"
+          (click)="changeCategory(c)"
+          href="#"
+          class="list-group-item list-group-item-action list-group-item-info"
+          [class.active]="c == selectedCategory"
+        >
+          {{ c.name }}</a
+        >
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-primary" role="alert">
+            {{ movies.length }} Movies Found
+          </div>
+        </div>
+        <ng-container *ngFor="let m of movies">
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <img
+                class="rounded"
+                src="assets/img/{{ m.imageUrl }}"
+                alt="{{ m.name }}"
+              />
+              <div class="card-body cardMainColor">
+                <h4 class="card-title">
+                  {{ m.name }}
+                </h4>
+                <h5 class="card-subtitle mb-1 text-muted">
+                  {{ m.categories }}
+                </h5>
+                <h6 class="card-title subtitle mb-1 text-muted">
+                  {{ m.description }}
+                </h6>
+                <small class="text-muted"
+                  ><i class="fas fa-lira-sign">{{ m.price }}</i></small
+                >
+              </div>
+
+              <div class="card-footer text-center">
+                <button class="btn btn-outline-primary btn-small">
+                  Details
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-small"
+                  style="margin-left: 3%"
+                >
+                  Add to Suggestions
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <div class="btn-group">
+            <button
+              *ngFor="let page of pageNumbers"
+              (click)="changePage(page)"
+              class="btn btn-outline-primary"
+            >
+              {{ page }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

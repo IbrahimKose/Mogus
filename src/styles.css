@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.bgMainColor{
+    background-color: #144361;
+}
+.menuMainColor{
+    background-color: #071c34;
+}
+.cardMainColor{
+    background-color: #C0CED1;
+}
+.alertMainColor{
+    background-color: #C0CED1;
+}
